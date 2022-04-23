@@ -7,6 +7,7 @@ use App\Models\Serie;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\HTTP;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class SerieIndex extends Component
 {
@@ -45,7 +46,7 @@ class SerieIndex extends Component
                 'tmdb_id'     => $newSerie['id'],
                 'name'        => $newSerie['name'],
                 'slug'        => Str::slug($newSerie['name']),
-                'created_year'=> $newSerie['first_air_date'],
+                'created_year'=> $newSerie['first_air_date'] ? $newSerie['first_air_date'] :  Carbon::now()->format('Y') ,
                 'poster_path' => $newSerie['poster_path'],
             ]);
             
