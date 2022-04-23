@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\WelcomeController;
 
 use App\Http\Livewire\MovieIndex;
 use App\Http\Livewire\SerieIndex;
@@ -23,9 +24,7 @@ use App\Http\Livewire\TagIndex;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','role:admin'])->prefix('admin')->name('admin.')->group(function(){
     Route::get('/',[AdminController::class, 'index'])->name('index');
