@@ -9,7 +9,7 @@
                 <h1>Movies</h1>
             </div>
             <div
-                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cls-4 gap-4 rounded"
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 rounded"
             >
                 <x-movie-card>
                     <x-slot name="image">
@@ -160,7 +160,7 @@
                 <h1>Episodes</h1>
             </div>
             <div
-                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cls-4 gap-4 rounded"
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 rounded"
             >
                 Episodes Cards
             </div>
@@ -174,7 +174,7 @@
                 <h1>Series</h1>
             </div>
             <div
-                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cls-4 gap-4 rounded"
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 rounded"
             >
                 Serie Cards
             </div>
