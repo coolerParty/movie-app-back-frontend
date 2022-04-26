@@ -163,7 +163,7 @@ class MovieIndex extends Component
             'overview'      => $this->overview,
             'is_public'     => $this->isPublic,
         ]);
-        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Movie " ' . $movie->title .' " Updated successfully!']);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Movie " ' . $this->movie->title .' " Updated successfully!']);
         $this->reset();
     }
 

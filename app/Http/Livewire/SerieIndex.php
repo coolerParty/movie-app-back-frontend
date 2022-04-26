@@ -63,7 +63,7 @@ class SerieIndex extends Component
 
     public function closeSerieModal()
     {
-        $this->reset();
+        $this->reset('createdyear','posterPath','showSerieModal');
         $this->resetValidation();
     }
 
