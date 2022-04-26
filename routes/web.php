@@ -39,6 +39,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','r
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
     Route::get('/dashboard', function () {
+        // auth()->user()->assignRole('admin');
         return view('dashboard');
     })->name('dashboard');
 });
