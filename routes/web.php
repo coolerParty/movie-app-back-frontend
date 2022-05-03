@@ -30,6 +30,7 @@ use App\Http\Livewire\TagIndex;
 
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
+Route::get('/movies/{movie:slug}', [MovieController::class, 'show'])->name('movies.show');
 Route::get('/series', [SerieController::class, 'index'])->name('series.index');
 Route::get('/casts', [CastController::class, 'index'])->name('casts.index');
 Route::get('/genre/{slug}', [GenreController::class, 'show'])->name('genres.show');
