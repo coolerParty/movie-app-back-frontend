@@ -64,22 +64,26 @@
                     <h1 class="flex text-white font-bold text-xl">Latest Movies</h1>
                     <div class="grid grid-cols-3 gap-2">
                         @if(!empty($latest))
-                            @foreach($latest as $lmovie)
-                                <a href="{{ route('movies.show',$lmovie->slug) }}">
-                                    <img class="w-full h-full rounded-lg" src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $lmovie->poster_path }}" alt="">
-                                </a>
-                            @endforeach
+                        @foreach($latest as $lmovie)
+                        <a href="{{ route('movies.show',$lmovie->slug) }}">
+                            <img class="w-full h-full rounded-lg"
+                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $lmovie->poster_path }}"
+                                alt="">
+                        </a>
+                        @endforeach
                         @endif
                     </div>
                 </div>
             </div>
         </section>
-        <section class="max-w-6xl mx-auto bg-yellow-600 text-indigo-600 mt-6 p-2">
-            @foreach($movie->tags as $tag)
-                <span class="font-bold hover:text-indigo-200 cursor-pointer">
-                    #{{ $tag->tag_name }}
-                </span>
-            @endforeach
+        <section class="max-w-6xl mx-auto bg-gradient-to-r from-indigo-700 to-trannsparent mt-6 p-2">
+            @if(count($movie->tags) > 0)
+                @foreach($movie->tags as $tag)
+                    <span class="font-bold text-white hover:text-indigo-200 cursor-pointer">
+                        #{{ $tag->tag_name }}
+                    </span>
+                @endforeach
+            @endif
         </section>
     </main>
     @endif
