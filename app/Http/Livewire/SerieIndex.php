@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Serie;
+use Carbon\Carbon;
+use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\HTTP;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 
 class SerieIndex extends Component
 {
