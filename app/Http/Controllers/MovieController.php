@@ -9,6 +9,7 @@ class MovieController extends Controller
 {
     public function show(Movie $movie)
     {
-        return view('movies.show', compact('movie'));
+        $latest = Movie::orderBy('created_at','DESC')->take(9)->get();
+        return view('movies.show', compact('movie','latest'));
     }
 }
