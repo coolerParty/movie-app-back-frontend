@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Season;
 use App\Models\Serie;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
@@ -20,6 +21,12 @@ class SerieController extends Controller
     {
         $latests = Serie::withCount('seasons')->orderBy('created_at','desc')->take(9)->get();
         return view('series.show', compact('serie','latests'));
+    }
+
+    public function seasonShow(Serie $serie, Season $season)
+    {
+        $latests = Season::withCount('episodes')->orderBy('created_at','desc')->take(9)->get();
+        return view('series.seasons.show', compact('serie','season','latests'));
     }
 
 }

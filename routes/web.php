@@ -36,6 +36,9 @@ Route::get('/movies/{movie:slug}', [MovieController::class, 'show'])->name('movi
 Route::get('/series', [SerieController::class, 'index'])->name('series.index');
 Route::get('/series/{serie:slug}', [SerieController::class, 'show'])->name('series.show');
 
+Route::get('/series/{serie:slug}/seasons/{season:slug}', [SerieController::class, 'seasonshow'])->name('season.show');
+
+
 Route::get('/casts', [CastController::class, 'index'])->name('casts.index');
 Route::get('/genre/{slug}', [GenreController::class, 'show'])->name('genres.show');
 

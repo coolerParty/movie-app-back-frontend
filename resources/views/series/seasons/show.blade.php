@@ -1,5 +1,5 @@
 <x-front-layout>
-    @if(!empty($serie))
+    @if(!empty($season))
     <main class="my-2">
         <section class="bg-gradient-to-r from-indigo-700 to-trannsparent">
             <div class="max-w-6xl mx-auto m-4 p-2">
@@ -7,15 +7,17 @@
                     <div class="w-3/12">
                         <div class="w-full">
                             <img class="w-full h-full rounded"
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $serie->poster_path }}"
+                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $season->poster_path }}"
                                 alt="">
                         </div>
                     </div>
                     <div class="w-8/12">
                         <div class="m-4 p-2">
-                            <h1 class="flex text-white font-bold text-4xl">{{ $serie->name }}</h1>
+                            <h1 class="flex text-white font-bold text-4xl">{{ $season->name }}</h1>
                             <div class="flex p-3 text-white space-x-4">
+                                <span>Serie: <strong>{{ $serie->name }}</strong></span>
                                 <span class="">{{ $serie->created_year }}</span>
+
                             </div>
                         </div>
                     </div>
@@ -25,30 +27,35 @@
         <section class="max-w-6xl mx-auto bg-gray-200 dark:bg-gray-900 p-2 rounded">
             <div class="flex justify-between">
                 <div class="w-7/12">
-                    <h1 class="flex text-white font-bold text-xl">Seasons</h1>
+                    <h1 class="flex text-white font-bold text-xl">Episodes</h1>
                     <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-4">
-                        @foreach($serie->seasons as $season)
+                        @foreach($season->episodes as $episode)
                         <x-movie-card>
-                            <a href="{{ route('season.show', [$serie->slug, $season->slug]) }}">
+                            <a href="#">
                                 <x-slot name="image">
                                     <img class=""
                                         src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $season->poster_path }}"
                                         alt="">
+                                        <div
+                                    class="absolute z-10 left-1 top-1 h-6 w-6 bg-gray-800 group-hover:bg-gray-700 text-blue-400 text-center font-bold rounded">
+                                    {{ $episode->episode_number }} 
+                                </div>
                                 </x-slot>
-                                <span class="text-white">{{ $season->name }}</span>
+                                
+                                <span class="text-white">{{ $episode->name }}</span>
                             </a>
                         </x-movie-card>
                         @endforeach
                     </div>
                 </div>
                 <div class="w-4/12">
-                    <h1 class="flex text-white font-bold text-xl">Latest Movies</h1>
+                    <h1 class="flex text-white font-bold text-xl">Latest Seasons</h1>
                     <div class="grid grid-cols-3 gap-2">
                         @if(!empty($latests))
-                        @foreach($latests as $lserie)
-                        <a href="{{ route('series.show',$lserie->slug) }}">
+                        @foreach($latests as $lseason)
+                        <a href="{{ route('series.show',[$lseason->serie->slug, $lseason->slug]) }}">
                             <img class="w-full h-full rounded-lg"
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $lserie->poster_path }}"
+                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $lseason->poster_path }}"
                                 alt="">
                         </a>
                         @endforeach
