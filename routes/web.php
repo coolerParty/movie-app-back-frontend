@@ -42,7 +42,7 @@ Route::get('/episode/{episode}/{slug}', [SerieController::class, 'showEpisode'])
 Route::get('/casts', [CastController::class, 'index'])->name('casts.index');
 Route::get('/casts/{cast:slug}', [CastController::class, 'show'])->name('casts.show');
 
-Route::get('/genre/{slug}', [GenreController::class, 'show'])->name('genres.show');
+Route::get('/genre/{genre:slug}', [GenreController::class, 'show'])->name('genres.show');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','role:admin'])->prefix('admin')->name('admin.')->group(function(){
 

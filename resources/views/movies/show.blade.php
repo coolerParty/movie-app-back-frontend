@@ -18,7 +18,7 @@
                                 <span class="">{{ $movie->release_date }}</span>
                                 <span class="ml-2 space-x-1">
                                     @foreach($movie->genres as $genre)
-                                    {{ $genre->title }},
+                                    <a class="font-bold hover:text-blue-500" href="{{ route('genres.show', $genre->slug) }}">{{ $genre->title }}</a>,
                                     @endforeach
                                 </span>
                                 <span class="flex space-x-1">
