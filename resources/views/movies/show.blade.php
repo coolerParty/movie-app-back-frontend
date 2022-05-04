@@ -51,11 +51,15 @@
                         @foreach($movie->casts as $cast)
                         <x-movie-card>
                             <x-slot name="image">
-                                <img class=""
-                                    src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $cast->poster_path }}"
-                                    alt="">
+                                <a href="{{ route('casts.show', $cast->slug) }}">
+                                    <img class=""
+                                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{ $cast->poster_path }}"
+                                        alt="">
+                                </a>
                             </x-slot>
-                            <span class="text-white">{{ $cast->name }}</span>
+                            <a href="{{ route('casts.show', $cast->slug) }}">
+                                <span class="text-white">{{ $cast->name }}</span>
+                            </a>
                         </x-movie-card>
                         @endforeach
                     </div>
@@ -78,13 +82,13 @@
         </section>
         @if(count($movie->tags) > 0)
         <section class="max-w-6xl mx-auto bg-gradient-to-r from-indigo-700 to-trannsparent mt-6 p-2">
-           
-                @foreach($movie->tags as $tag)
-                    <span class="font-bold text-white hover:text-indigo-200 cursor-pointer">
-                        #{{ $tag->tag_name }}
-                    </span>
-                @endforeach
-           
+
+            @foreach($movie->tags as $tag)
+            <span class="font-bold text-white hover:text-indigo-200 cursor-pointer">
+                #{{ $tag->tag_name }}
+            </span>
+            @endforeach
+
         </section>
         @endif
     </main>
