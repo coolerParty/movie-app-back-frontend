@@ -76,15 +76,17 @@
                 </div>
             </div>
         </section>
+        @if(count($movie->tags) > 0)
         <section class="max-w-6xl mx-auto bg-gradient-to-r from-indigo-700 to-trannsparent mt-6 p-2">
-            @if(count($movie->tags) > 0)
+           
                 @foreach($movie->tags as $tag)
                     <span class="font-bold text-white hover:text-indigo-200 cursor-pointer">
                         #{{ $tag->tag_name }}
                     </span>
                 @endforeach
-            @endif
+           
         </section>
+        @endif
     </main>
     @endif
 </x-front-layout>

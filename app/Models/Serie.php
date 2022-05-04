@@ -11,4 +11,8 @@ class Serie extends Model
 
     protected $fillable = ['tmdb_id','name','slug','created_year','poster_path'];
 
+    public function seasons()
+    {
+        return $this->hasMany(Season::class);
+    }
 }

@@ -5,7 +5,7 @@
     >
         <div class="p-4 flex flex-row items-center justify-between">
             <a
-                href="#"
+                href="/"
                 class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline"
                 >Movie App</a
             >
