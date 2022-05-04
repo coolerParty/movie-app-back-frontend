@@ -8,7 +8,8 @@
 	<div class="w-full flex mb-4 p-2 justify-end">
 		<form class="flex space-x-4 shadow bg-white rounded-md m-2 p-2">
 			<div class="p-1 flex items-center">
-				<label for="episodeNumber" class="block text-sm font-medium text-gray-700 md:mr-4">Episode Number</label>
+				<label for="episodeNumber" class="block text-sm font-medium text-gray-700 md:mr-4">Episode
+					Number</label>
 				<div class="relative rounded-md shadow-sm">
 					<input wire:model="episodeNumber" id="episodeNumber" name="tmdb_id_g"
 						class="px-3 py-2 border border-gray-300 rounded" placeholder="Episode Number" />
@@ -80,33 +81,40 @@
 					</tr>
 				</thead>
 				<tbody class="bg-white">
-					@foreach ($episodes as $episode)
-						<tr class="text-gray-700">
-							<td class="px-4 py-3 border">
-								{{ $episode->name }}
-							</td>
-							<td class="px-4 py-3 border">
-								@if ($episode->is_public)
-									<span class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-indigo-100 text-indigo 800">
-										Published
-									</span>
-								@else
-									<span class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-red-100 text-red 800">
-										Unpublished
-									</span>
-								@endif
-							</td>
-							<td class="px-4 py-3 text-ms font-semibold border">
-								{{ $episode->episode_number }}
-							</td>
-							<td class="px-4 py-3 text-sm border">
-								<x-m-button wire:click="showEditModal({{ $episode->id }})" class="bg-green-500 hover:bg-green-700 text-white">
-									Edit</x-m-button>
-								<x-m-button wire:click="deleteEpisode({{ $episode->id }})" class="bg-red-500 hover:bg-red-700 text-white">
-									Delete
-								</x-m-button>
-							</td>
-						</tr>
+					@foreach ($episodes as $tepisode)
+					<tr class="text-gray-700">
+						<td class="px-4 py-3 border">
+							{{ $tepisode->name }}
+						</td>
+						<td class="px-4 py-3 border">
+							@if ($tepisode->is_public)
+							<span
+								class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-indigo-100 text-indigo 800">
+								Published
+							</span>
+							@else
+							<span
+								class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-red-100 text-red 800">
+								Unpublished
+							</span>
+							@endif
+						</td>
+						<td class="px-4 py-3 text-ms font-semibold border">
+							{{ $tepisode->episode_number }}
+						</td>
+						<td class="px-4 py-3 text-sm border">
+							<x-m-button wire:click="showTrailerModal({{ $tepisode->id }})"
+								class="bg-indigo-500 hover:bg-indigo-700 text-white text-xs">
+								Trailer</x-m-button>
+							<x-m-button wire:click="showEditModal({{ $tepisode->id }})"
+								class="bg-green-500 hover:bg-green-700 text-white">
+								Edit</x-m-button>
+							<x-m-button wire:click="deleteEpisode({{ $tepisode->id }})"
+								class="bg-red-500 hover:bg-red-700 text-white">
+								Delete
+							</x-m-button>
+						</td>
+					</tr>
 					@endforeach
 				</tbody>
 			</table>
@@ -130,30 +138,34 @@
 									<input wire:model="name" id="name" type="text" autocomplete="given-name"
 										class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 									@error('name')
-										<span class="text-red-500 text-sm">{{ $message }}</span>
+									<span class="text-red-500 text-sm">{{ $message }}</span>
 									@enderror
 								</div>
 								<div class="flex flex-col mb-4">
-									<label for="episodeNumber" class="block text-sm font-medium text-gray-700">Created Year</label>
-									<input wire:model="episodeNumber" id="episodeNumber" type="text" autocomplete="given-name"
+									<label for="episodeNumber" class="block text-sm font-medium text-gray-700">Created
+										Year</label>
+									<input wire:model="episodeNumber" id="episodeNumber" type="text"
+										autocomplete="given-name"
 										class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 									@error('episodeNumber')
-										<span class="text-red-500 text-sm">{{ $message }}</span>
+									<span class="text-red-500 text-sm">{{ $message }}</span>
 									@enderror
 								</div>
 								<div class="flex flex-col mb-4">
-									<label for="overview" class="block text-sm font-medium text-gray-700">OverView</label>
+									<label for="overview"
+										class="block text-sm font-medium text-gray-700">OverView</label>
 									<textarea wire:model="overview" id="overview" type="text" autocomplete="given-name"
-          class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $overview }}</textarea>
+										class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $overview }}</textarea>
 									@error('overview')
-										<span class="text-red-500 text-sm">{{ $message }}</span>
+									<span class="text-red-500 text-sm">{{ $message }}</span>
 									@enderror
 								</div>
 								<div class="flex flex-col mb-4">
 									<div class="flex items-center px-2 py-6">
 										<input wire:model="isPublic" id="isPublic" name="isPublic" type="checkbox"
 											class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-										<label for="isPublic" class="ml-2 block text-sm text-gray-900"> Published </label>
+										<label for="isPublic" class="ml-2 block text-sm text-gray-900"> Published
+										</label>
 									</div>
 								</div>
 							</div>
@@ -163,9 +175,59 @@
 			</div>
 		</x-slot>
 		<x-slot name="footer">
-			<x-m-button wire:click="closeEpisodeModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel</x-m-button>
+			<x-m-button wire:click="closeEpisodeModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel
+			</x-m-button>
 			<x-m-button wire:click="updateEpisode">Update</x-m-button>
 		</x-slot>
 	</x-jet-dialog-modal>
 	{{-- modal end --}}
+	{{-- Show-Trailer-Modal Start --}}
+	<x-jet-dialog-modal wire:model="showTrailer">
+		<x-slot name="title">Trailer Episode</x-slot>
+		<x-slot name="content">
+			@if ($episode)
+			@foreach ($episode->trailers as $trailer)
+			<x-jet-button wire:click="deleteTrailer({{ $trailer->id }})" class="bg-red-700 hover:bg-red-500">
+				{{ $trailer->name }}</x-jet-button>
+			@endforeach
+			@endif
+			<div class="mt-10 sm:mt-0">
+				<div class="mt-5 md:mt-0 md:col-span-2">
+					<form>
+						<div class="shadow overflow-hidden sm:rounded-md">
+							<div class="px-4 py-5 bg-white sm:p-6">
+								<div class="flex flex-col mb-4">
+									<label for="trailerName"
+										class="block text-sm font-medium text-gray-700">Name</label>
+									<input wire:model="trailerName" id="trailerName" type="text"
+										autocomplete="given-name"
+										class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+									@error('trailerName')
+									<span class="text-red-500 text-sm">{{ $message }}</span>
+									@enderror
+								</div>
+								<div class="flex flex-col mb-4">
+									<label for="embedHtml" class="block text-sm font-medium text-gray-700">Embed
+										Html</label>
+									<textarea wire:model="embedHtml" id="embedHtml" type="text"
+										autocomplete="given-embedHtml"
+										class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+									@error('embedHtml')
+									<span class="text-red-500 text-sm">{{ $message }}</span>
+									@enderror
+								</div>
+							</div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</x-slot>
+		<x-slot name="footer">
+			<x-m-button wire:click="closeEpisodeModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel
+			</x-m-button>
+			<x-m-button wire:click="addTrailer">Add Trailer</x-m-button>
+		</x-slot>
+	</x-jet-dialog-modal>
+	{{-- Show-Trailer-Modal End --}}
 </section>

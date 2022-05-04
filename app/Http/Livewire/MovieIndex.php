@@ -35,7 +35,7 @@ class MovieIndex extends Component
     public $trailerName;
     public $embedHtml;
 
-    public $movie = [];
+    public $movie;
 
     public $showMovieModal = false;
     public $showTrailer = false;

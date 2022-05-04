@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Episode;
 use App\Models\Season;
 use App\Models\Serie;
+use App\Models\TrailerUrl;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\HTTP;
 use Illuminate\Support\Str;
@@ -29,6 +30,11 @@ class EpisodeIndex extends Component
     public $overview;
     public $isPublic;
     public $showEpisodeModal = false;
+
+    public $showTrailer = false;
+    public $episode;
+    public $trailerName;
+    public $embedHtml;
 
     protected $rules = [
         'name'          => 'required',
@@ -77,7 +83,8 @@ class EpisodeIndex extends Component
 
     public function closeEpisodeModal()
     {
-        $this->reset('episodeNumber','overview','name','episodeId','showEpisodeModal','isPublic');
+        $this->showEpisodeModal = false;
+        $this->showTrailer = false;
         $this->resetValidation();
     }
 
@@ -124,6 +131,30 @@ class EpisodeIndex extends Component
     public function resetFilters()
     {
         $this->reset(['search','sort','perPage']);
+    }
+
+    public function showTrailerModal($EpisodeId)
+    {
+        $this->episode = Episode::findOrFail($EpisodeId);
+        $this->showTrailer = true;
+    }
+
+    public function addTrailer()
+    {
+        $this->episode->trailers()->create([
+            'name' => $this->trailerName,
+            'embed_html' => $this->embedHtml,
+        ]);
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Trailer has been added successfully!']);
+        $this->reset('episode','showTrailer','trailerName','embedHtml');
+    }
+
+    public function deleteTrailer($trailerId)
+    {
+        $trailer = TrailerUrl::findOrFail($trailerId);
+        $trailer->delete();
+        $this->dispatchBrowserEvent('banner-message', ['style' => 'success', 'message' => 'Trailer has been deleted successfully!']);
+        $this->reset('episode','showTrailer','trailerName','embedHtml',);
     }
 
     public function render()
