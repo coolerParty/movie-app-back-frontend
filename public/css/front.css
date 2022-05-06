@@ -1310,6 +1310,9 @@ select {
 .w-72 {
   width: 18rem;
 }
+.w-52 {
+  width: 13rem;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -2821,6 +2824,10 @@ select {
     width: 24rem;
   }
 
+  .md\:w-72 {
+    width: 18rem;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2847,6 +2854,10 @@ select {
 
   .md\:justify-start {
     justify-content: flex-start;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
   }
 
   .md\:justify-between {
