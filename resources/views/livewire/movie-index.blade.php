@@ -10,13 +10,21 @@
 			<div class="p-1 flex items-center">
 				<label for="tmdbId" class="block text-sm font-medium text-gray-700 md:mr-4">Tmdb Id</label>
 				<div class="relative rounded-md shadow-sm">
-					<input wire:model="tmdbId" id="tmdbId" name="tmdb_id_g" class="px-3 py-2 border border-gray-300 rounded"
-						placeholder="Tmdb Id" />
+					<input wire:model="tmdbId" id="tmdbId" name="tmdb_id_g"
+						class="px-3 py-2 border border-gray-300 rounded" placeholder="Tmdb Id" />
 				</div>
 			</div>
 			<div class="p-1">
 				<button type="button" wire:click="generateMovie"
 					class="inline-flex items-center justify-center py-2 px-4 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-green-700 transition duration-150 ease-in-out disabled:opacity-50">
+					<svg wire:loading wire:target="generateMovie" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+						fill="none" viewBox="0 0 24 24">
+						<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+						</circle>
+						<path class="opacity-75" fill="currentColor"
+							d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+						</path>
+					</svg>
 					<span>Generate</span>
 				</button>
 			</div>
@@ -66,19 +74,19 @@
 							<div class="flex space-x-4 content-center">
 								<span>Title</span>
 								@if ($sortColumn == 'title' && $sortDirection == 'desc')
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" viewBox="0 0 20 20"
-										fill="currentColor">
-										<path fill-rule="evenodd"
-											d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
-											clip-rule="evenodd" />
-									</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700"
+									viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd"
+										d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
+										clip-rule="evenodd" />
+								</svg>
 								@elseif ($sortColumn == 'title' && $sortDirection == 'asc')
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" viewBox="0 0 20 20"
-										fill="currentColor">
-										<path fill-rule="evenodd"
-											d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z"
-											clip-rule="evenodd" />
-									</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700"
+									viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd"
+										d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z"
+										clip-rule="evenodd" />
+								</svg>
 								@endif
 							</div>
 						</th>
@@ -86,19 +94,19 @@
 							<div class="flex space-x-4 content-center">
 								<span>Rating</span>
 								@if ($sortColumn == 'rating' && $sortDirection == 'desc')
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" viewBox="0 0 20 20"
-										fill="currentColor">
-										<path fill-rule="evenodd"
-											d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
-											clip-rule="evenodd" />
-									</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700"
+									viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd"
+										d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
+										clip-rule="evenodd" />
+								</svg>
 								@elseif ($sortColumn == 'rating' && $sortDirection == 'asc')
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" viewBox="0 0 20 20"
-										fill="currentColor">
-										<path fill-rule="evenodd"
-											d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z"
-											clip-rule="evenodd" />
-									</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700"
+									viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd"
+										d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z"
+										clip-rule="evenodd" />
+								</svg>
 								@endif
 							</div>
 						</th>
@@ -106,19 +114,19 @@
 							<div class="flex space-x-4 content-center">
 								<span>Visits</span>
 								@if ($sortColumn == 'visits' && $sortDirection == 'desc')
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" viewBox="0 0 20 20"
-										fill="currentColor">
-										<path fill-rule="evenodd"
-											d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
-											clip-rule="evenodd" />
-									</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700"
+									viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd"
+										d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z"
+										clip-rule="evenodd" />
+								</svg>
 								@elseif ($sortColumn == 'visits' && $sortDirection == 'asc')
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700" viewBox="0 0 20 20"
-										fill="currentColor">
-										<path fill-rule="evenodd"
-											d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z"
-											clip-rule="evenodd" />
-									</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-700"
+									viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd"
+										d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z"
+										clip-rule="evenodd" />
+								</svg>
 								@endif
 							</div>
 						</th>
@@ -130,58 +138,62 @@
 				</thead>
 				<tbody class="bg-white">
 					@forelse ($movies as $table_movie)
-						<tr class="text-gray-700">
-							<td class="px-4 py-3 text-ms border">
-								<span wire:click="showMovieDetail({{ $table_movie->id }})"
-									class="text-blue-500 hover:text-blue-700 cursor-pointer">{{ $table_movie->title }}</span>
-							</td>
-							<td class="px-4 py-3 text-ms border">
-								{{ $table_movie->rating }}
-							</td>
-							<td class="px-4 py-3 text-ms border">
-								{{ $table_movie->visits }}
-							</td>
-							<td class="px-4 py-3 text-ms font-semibold border">
-								{{ date('H:i', mktime(0, $table_movie->runtime)) }}
-							</td>
-							<td class="px-4 py-3 text-ms font-semibold border">
-								@if ($table_movie->is_public)
-									<span class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-indigo-100 text-indigo 800">
-										Published
-									</span>
-								@else
-									<span class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-red-100 text-red 800">
-										Unpublished
-									</span>
-								@endif
-							</td>
-							<td class="px-4 py-3 text-ms font-semibold border">
+					<tr class="text-gray-700">
+						<td class="px-4 py-3 text-ms border">
+							<span wire:click="showMovieDetail({{ $table_movie->id }})"
+								class="text-blue-500 hover:text-blue-700 cursor-pointer">{{ $table_movie->title
+								}}</span>
+						</td>
+						<td class="px-4 py-3 text-ms border">
+							{{ $table_movie->rating }}
+						</td>
+						<td class="px-4 py-3 text-ms border">
+							{{ $table_movie->visits }}
+						</td>
+						<td class="px-4 py-3 text-ms font-semibold border">
+							{{ date('H:i', mktime(0, $table_movie->runtime)) }}
+						</td>
+						<td class="px-4 py-3 text-ms font-semibold border">
+							@if ($table_movie->is_public)
+							<span
+								class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-indigo-100 text-indigo 800">
+								Published
+							</span>
+							@else
+							<span
+								class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-red-100 text-red 800">
+								Unpublished
+							</span>
+							@endif
+						</td>
+						<td class="px-4 py-3 text-ms font-semibold border">
 
-								<img class="w-12 h-12 rounded"
-									src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ $table_movie->poster_path }}" alt="">
-							</td>
-							<td class="px-4 py-3 text-sm border">
-								<x-m-button wire:click="showTrailerModal({{ $table_movie->id }})"
-									class="bg-indigo-500 hover:bg-indigo-700 text-white text-xs">
-									Trailer</x-m-button>
-								<x-m-button wire:click="showEditModal({{ $table_movie->id }})"
-									class="bg-green-600 hover:bg-green-500 text-white text-xs">
-									Edit</x-m-button>
-								<x-m-button wire:click="deleteMovie({{ $table_movie->id }})"
-									class="bg-red-500 hover:bg-red-700 text-white text-xs">Delete
-								</x-m-button>
-							</td>
-						</tr>
+							<img class="w-12 h-12 rounded"
+								src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ $table_movie->poster_path }}"
+								alt="">
+						</td>
+						<td class="px-4 py-3 text-sm border">
+							<x-m-button wire:click="showTrailerModal({{ $table_movie->id }})"
+								class="bg-indigo-500 hover:bg-indigo-700 text-white text-xs">
+								Trailer</x-m-button>
+							<x-m-button wire:click="showEditModal({{ $table_movie->id }})"
+								class="bg-green-600 hover:bg-green-500 text-white text-xs">
+								Edit</x-m-button>
+							<x-m-button wire:click="deleteMovie({{ $table_movie->id }})"
+								class="bg-red-500 hover:bg-red-700 text-white text-xs">Delete
+							</x-m-button>
+						</td>
+					</tr>
 					@empty
-						<tr class="text-gray-700">
-							<td class="px-4 py-3 border">
-								Empty
-							</td>
-							<td class="px-4 py-3 border"></td>
-							<td class="px-4 py-3 border"></td>
-							<td class="px-4 py-3 border"></td>
-							<td class="px-4 py-3 border"></td>
-						</tr>
+					<tr class="text-gray-700">
+						<td class="px-4 py-3 border">
+							Empty
+						</td>
+						<td class="px-4 py-3 border"></td>
+						<td class="px-4 py-3 border"></td>
+						<td class="px-4 py-3 border"></td>
+						<td class="px-4 py-3 border"></td>
+					</tr>
 					@endforelse
 				</tbody>
 			</table>
@@ -196,7 +208,7 @@
 		<x-slot name="content">
 			<div class="mt-10 sm:mt-0">
 				<div class="mt-5 md:mt-0 md:col-span-2" x-data="{tab: 0}">
-					<div class="flex border border-black overflow-hidden"> 
+					<div class="flex border border-black overflow-hidden">
 						<button class="px-4 py-2 w-full" x-on:click.prevent="tab = 0">Form</button>
 						<button class="px-4 py-2 w-full" x-on:click.prevent="tab = 1">Tags</button>
 						<button class="px-4 py-2 w-full" x-on:click.prevent="tab = 2">Casts</button>
@@ -207,89 +219,105 @@
 								<div class="shadow overflow-hidden sm:rounded-md">
 									<div class="px-4 py-5 bg-white sm:p-6">
 										<div class="flex flex-col">
-											<label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+											<label for="title"
+												class="block text-sm font-medium text-gray-700">Title</label>
 											<input wire:model="title" id="title" type="text" autocomplete="given-title"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('title')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
-											<label for="runtime" class="block text-sm font-medium text-gray-700">Runtime</label>
-											<input wire:model="runtime" id="runtime" type="text" autocomplete="given-runtime"
+											<label for="runtime"
+												class="block text-sm font-medium text-gray-700">Runtime</label>
+											<input wire:model="runtime" id="runtime" type="text"
+												autocomplete="given-runtime"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('runtime')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
-											<label for="lang" class="block text-sm font-medium text-gray-700">Language</label>
+											<label for="lang"
+												class="block text-sm font-medium text-gray-700">Language</label>
 											<input wire:model="lang" id="lang" type="text" autocomplete="given-lang"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('lang')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
-											<label for="videoFormat" class="block text-sm font-medium text-gray-700">Format</label>
-											<input wire:model="videoFormat" id="videoFormat" type="text" autocomplete="given-videoFormat"
+											<label for="videoFormat"
+												class="block text-sm font-medium text-gray-700">Format</label>
+											<input wire:model="videoFormat" id="videoFormat" type="text"
+												autocomplete="given-videoFormat"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('videoFormat')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
-											<label for="rating" class="block text-sm font-medium text-gray-700">Rating</label>
-											<input wire:model="rating" id="rating" type="text" autocomplete="given-rating"
+											<label for="rating"
+												class="block text-sm font-medium text-gray-700">Rating</label>
+											<input wire:model="rating" id="rating" type="text"
+												autocomplete="given-rating"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('rating')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
-											<label for="posterPath" class="block text-sm font-medium text-gray-700">Poster</label>
-											<input wire:model="posterPath" id="posterPath" type="text" autocomplete="given-posterPath"
+											<label for="posterPath"
+												class="block text-sm font-medium text-gray-700">Poster</label>
+											<input wire:model="posterPath" id="posterPath" type="text"
+												autocomplete="given-posterPath"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('posterPath')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
-											<label for="backdropPath" class="block text-sm font-medium text-gray-700">Backdrop</label>
-											<input wire:model="backdropPath" id="backdropPath" type="text" autocomplete="given-backdropPath"
+											<label for="backdropPath"
+												class="block text-sm font-medium text-gray-700">Backdrop</label>
+											<input wire:model="backdropPath" id="backdropPath" type="text"
+												autocomplete="given-backdropPath"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('backdropPath')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
-											<label for="overview" class="block text-sm font-medium text-gray-700">Overview</label>
-											<input wire:model="overview" id="overview" type="text" autocomplete="given-overview"
+											<label for="overview"
+												class="block text-sm font-medium text-gray-700">Overview</label>
+											<input wire:model="overview" id="overview" type="text"
+												autocomplete="given-overview"
 												class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 											@error('overview')
-												<span class="text-red-500 text-sm">{{ $message }}</span>
+											<span class="text-red-500 text-sm">{{ $message }}</span>
 											@enderror
 										</div>
 										<div class="flex flex-col">
 											<div class="flex items-center px-2 py-6">
-												<input wire:model="isPublic" id="isPublic" name="isPublic" type="checkbox"
+												<input wire:model="isPublic" id="isPublic" name="isPublic"
+													type="checkbox"
 													class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-												<label for="isPublic" class="ml-2 block text-sm text-gray-900"> Published </label>
+												<label for="isPublic" class="ml-2 block text-sm text-gray-900">
+													Published </label>
 											</div>
 										</div>
 									</div>
-		
+
 								</div>
 							</form>
 						</div>
 						<div class="p-4 space-x-2" x-show="tab === 1">
 							@if ($movie)
-								<livewire:movie-tag :movie="$movie"/>								
+							<livewire:movie-tag :movie="$movie" />
 							@endif
 						</div>
 						<div class="p-4 space-x-2" x-show="tab === 2">
 							@if ($movie)
-								<livewire:movie-cast :movie="$movie"/>								
+							<livewire:movie-cast :movie="$movie" />
 							@endif
 						</div>
 					</div>
@@ -298,7 +326,8 @@
 
 		</x-slot>
 		<x-slot name="footer">
-			<x-m-button wire:click="closeMovieModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel</x-m-button>
+			<x-m-button wire:click="closeMovieModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel
+			</x-m-button>
 			<x-m-button wire:click="updateMovie">Update</x-m-button>
 		</x-slot>
 	</x-jet-dialog-modal>
@@ -308,10 +337,10 @@
 		<x-slot name="title">Trailer Movie</x-slot>
 		<x-slot name="content">
 			@if ($movie)
-				@foreach ($movie->trailers as $trailer)
-					<x-jet-button wire:click="deleteTrailer({{ $trailer->id }})" class="bg-red-700 hover:bg-red-500">
-						{{ $trailer->name }}</x-jet-button>
-				@endforeach
+			@foreach ($movie->trailers as $trailer)
+			<x-jet-button wire:click="deleteTrailer({{ $trailer->id }})" class="bg-red-700 hover:bg-red-500">
+				{{ $trailer->name }}</x-jet-button>
+			@endforeach
 			@endif
 			<div class="mt-10 sm:mt-0">
 				<div class="mt-5 md:mt-0 md:col-span-2">
@@ -319,19 +348,23 @@
 						<div class="shadow overflow-hidden sm:rounded-md">
 							<div class="px-4 py-5 bg-white sm:p-6">
 								<div class="flex flex-col mb-4">
-									<label for="trailerName" class="block text-sm font-medium text-gray-700">Name</label>
-									<input wire:model="trailerName" id="trailerName" type="text" autocomplete="given-name"
+									<label for="trailerName"
+										class="block text-sm font-medium text-gray-700">Name</label>
+									<input wire:model="trailerName" id="trailerName" type="text"
+										autocomplete="given-name"
 										class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 									@error('trailerName')
-										<span class="text-red-500 text-sm">{{ $message }}</span>
+									<span class="text-red-500 text-sm">{{ $message }}</span>
 									@enderror
 								</div>
 								<div class="flex flex-col mb-4">
-									<label for="embedHtml" class="block text-sm font-medium text-gray-700">Embed Html</label>
-									<textarea wire:model="embedHtml" id="embedHtml" type="text" autocomplete="given-embedHtml"
-          class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+									<label for="embedHtml" class="block text-sm font-medium text-gray-700">Embed
+										Html</label>
+									<textarea wire:model="embedHtml" id="embedHtml" type="text"
+										autocomplete="given-embedHtml"
+										class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
 									@error('embedHtml')
-										<span class="text-red-500 text-sm">{{ $message }}</span>
+									<span class="text-red-500 text-sm">{{ $message }}</span>
 									@enderror
 								</div>
 							</div>
@@ -342,7 +375,8 @@
 			</div>
 		</x-slot>
 		<x-slot name="footer">
-			<x-m-button wire:click="closeMovieModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel</x-m-button>
+			<x-m-button wire:click="closeMovieModal" class="bg-gray-600 hover:bg-gray-800 text-white">Cancel
+			</x-m-button>
 			<x-m-button wire:click="addTrailer">Add Trailer</x-m-button>
 		</x-slot>
 	</x-jet-dialog-modal>
@@ -354,76 +388,83 @@
 			<div class="mt-10 sm:mt-0">
 				<div class="mt-5 md:mt-0 md:col-span-2">
 					@if ($movie)
-						<!-- This example requires Tailwind CSS v2.0+ -->
-						<div class="bg-white shadow overflow-hidden sm:rounded-lg">
-							<div class="px-4 py-5 sm:px-6">
-								<img class="w-220 h-330 mb-4 rounded"
-									src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ $movie->poster_path }}" alt="">
-								<h3 class="text-lg leading-6 font-medium text-gray-900">{{ $movie->title }}</h3>
-								<p class="mt-1 max-w-2xl text-sm text-gray-500">{{ $movie->overview }}</p>
-							</div>
-							<div class="border-t border-gray-200">
-								<dl>
-									<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-										<dt class="text-sm font-medium text-gray-500">Release Date</dt>
-										<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->release_date }}</dd>
-									</div>
-									<div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-										<dt class="text-sm font-medium text-gray-500">Runtime</dt>
-										<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-											{{ date('H:i', mktime(0, $table_movie->runtime)) }}</dd>
-									</div>
-									<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-										<dt class="text-sm font-medium text-gray-500">Language</dt>
-										<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->lang }}</dd>
-									</div>
-									<div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-										<dt class="text-sm font-medium text-gray-500">Format</dt>
-										<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->video_format }}</dd>
-									</div>
-									<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-										<dt class="text-sm font-medium text-gray-500">Rating</dt>
-										<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->rating }}</dd>
-									</div>
-									<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-										<dt class="text-sm font-medium text-gray-500">Visits</dt>
-										<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->visits }}</dd>
-									</div>
-									<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-										<dt class="text-sm font-medium text-gray-500">Published</dt>
-										@if ($movie->is_public)
-											<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-												<span class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-indigo-100 text-indigo 800">
-													Published
-												</span>
-											</dd>
-										@else
-											<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-												<span class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-red-100 text-red 800">
-													Unpublished
-												</span>
-											</dd>
-										@endif
-									</div>
-									<div class="bg-white px-4 py-5">
-										<dt class="text-sm font-medium text-gray-500">Trailers</dt>
-										<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-											<ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
-												@forelse ($movie->trailers as $trail)
-													<li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-														{!! $trail->embed_html !!}
-													</li>
-												@empty
-													<li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-														No Trailer
-													</li>
-												@endforelse												
-											</ul>
-										</dd>
-									</div>
-								</dl>
-							</div>
+					<!-- This example requires Tailwind CSS v2.0+ -->
+					<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+						<div class="px-4 py-5 sm:px-6">
+							<img class="w-220 h-330 mb-4 rounded"
+								src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ $movie->poster_path }}" alt="">
+							<h3 class="text-lg leading-6 font-medium text-gray-900">{{ $movie->title }}</h3>
+							<p class="mt-1 max-w-2xl text-sm text-gray-500">{{ $movie->overview }}</p>
 						</div>
+						<div class="border-t border-gray-200">
+							<dl>
+								<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+									<dt class="text-sm font-medium text-gray-500">Release Date</dt>
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->release_date
+										}}</dd>
+								</div>
+								<div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+									<dt class="text-sm font-medium text-gray-500">Runtime</dt>
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+										{{ date('H:i', mktime(0, $table_movie->runtime)) }}</dd>
+								</div>
+								<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+									<dt class="text-sm font-medium text-gray-500">Language</dt>
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->lang }}</dd>
+								</div>
+								<div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+									<dt class="text-sm font-medium text-gray-500">Format</dt>
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->video_format
+										}}</dd>
+								</div>
+								<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+									<dt class="text-sm font-medium text-gray-500">Rating</dt>
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->rating }}
+									</dd>
+								</div>
+								<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+									<dt class="text-sm font-medium text-gray-500">Visits</dt>
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $movie->visits }}
+									</dd>
+								</div>
+								<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+									<dt class="text-sm font-medium text-gray-500">Published</dt>
+									@if ($movie->is_public)
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+										<span
+											class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-indigo-100 text-indigo 800">
+											Published
+										</span>
+									</dd>
+									@else
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+										<span
+											class="px-2 inline-flex text-xs leading-5 font-semibolic rounded-full bg-red-100 text-red 800">
+											Unpublished
+										</span>
+									</dd>
+									@endif
+								</div>
+								<div class="bg-white px-4 py-5">
+									<dt class="text-sm font-medium text-gray-500">Trailers</dt>
+									<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+										<ul role="list"
+											class="border border-gray-200 rounded-md divide-y divide-gray-200">
+											@forelse ($movie->trailers as $trail)
+											<li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+												{!! $trail->embed_html !!}
+											</li>
+											@empty
+											<li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+												No Trailer
+											</li>
+											@endforelse
+										</ul>
+									</dd>
+								</div>
+							</dl>
+						</div>
+					</div>
 					@endif
 				</div>
 			</div>
