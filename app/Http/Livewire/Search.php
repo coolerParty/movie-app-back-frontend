@@ -2,8 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Cast;
+use App\Models\Episode;
 use App\Models\Movie;
+use App\Models\Season;
+use App\Models\Serie;
 use Livewire\Component;
+use Spatie\Searchable\Search as SpatieSearch;
 
 class Search extends Component
 {
@@ -23,7 +28,13 @@ class Search extends Component
 
     public function updatedsearch()
     {
-        $this->searchResults = Movie::search('title',$this->search)->get();
+        $this->searchResults = (new SpatieSearch())
+        ->registerModel(Movie::class, 'title')
+        ->registerModel(Serie::class, 'name')
+        ->registerModel(Season::class, 'name')
+        ->registerModel(Episode::class, 'name')
+        ->registerModel(Cast::class, 'name')
+        ->search($this->search);
     }
 
     public function render()
