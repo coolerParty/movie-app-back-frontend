@@ -18,7 +18,7 @@ class Search extends Component
 
     public function closeSearchModal()
     {
-        $this->showSearchModal = false;
+        $this->reset();
     }
 
     public function updatedsearch()
