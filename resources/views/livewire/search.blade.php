@@ -37,24 +37,24 @@
                 </div>
 
                 @if(!empty($search))
-                <div class="" wire:loading.remove>
-                    @if (!empty($searchResults))
-                    @foreach ($searchResults->groupByType() as $type => $modelSearchResults)
-                    <h1>{{ $type }}</h1>
-                    @foreach($modelSearchResults as $searchResult)
-                    <a href="{{ $searchResult->url  }}">
-                        <div
-                            class="p-2 m-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-500 dark:hover:bg-gray-700 rounded-md text-white cursor-pointer">
-                            {{
-                            $searchResult->title }}
-                        </div>
-                    </a>
-                    @endforeach
-                    @endforeach
-                    @else
-                    <div>No Results</div>
-                    @endif
-                </div>
+                    <div class="" wire:loading.remove>
+                        @if (!empty($searchResults))
+                            @foreach ($searchResults->groupByType() as $type => $modelSearchResults)
+                                <h1>{{ $type }}</h1>
+                                @foreach($modelSearchResults as $searchResult)
+                                    <a href="{{ $searchResult->url  }}">
+                                        <div
+                                            class="p-2 m-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-500 dark:hover:bg-gray-700 rounded-md text-white cursor-pointer">
+                                            {{
+                                            $searchResult->title }}
+                                        </div>
+                                    </a>
+                                @endforeach
+                            @endforeach
+                        @else
+                            <div>No Results</div>
+                        @endif
+                    </div>
                 @endif
             </div>
         </x-slot>
